@@ -1,5 +1,7 @@
-//template<class ItemType>
-//struct TreeNode;
+/////////////////////////////////////////
+//	Author: Joao Filipe Romao	//
+//	K00201566			//
+//////////////////////////////////////////
 template<class ItemType>
 struct TreeNode
 {
