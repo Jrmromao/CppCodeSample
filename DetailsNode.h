@@ -1,13 +1,11 @@
 #include "stdafx.h"
-struct PDetails //struct to store first name, last name and phone number
+struct PDetails
 {
-
-	
 	string FirstName;
 	string LastNam;
 	int PhoneNum;
 
-	//operator overloading
+
 	bool operator < (const PDetails &info) {
 		if (LastNam < info.LastNam) return true;
 		if (LastNam > info.LastNam) return false;
@@ -40,7 +38,7 @@ struct PDetails //struct to store first name, last name and phone number
 		PhoneNum = info.PhoneNum;
 		return *this;
 	}
-	//print method, for when the contact is found. Either by the first letter of the surname or by the surname.
+
 	void print(){
 
 		cout << "\n\t___________________________________________\n";
