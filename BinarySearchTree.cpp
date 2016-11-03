@@ -1,5 +1,7 @@
-// Assigment_6.cpp : Defines the entry point for the console application.
-//
+/////////////////////////////////////////
+//	Author: Joao Filipe Romao	//
+//	K00201566			//
+//////////////////////////////////////////
 
 #include "stdafx.h"
 #include "DetailsNode.h"
@@ -16,7 +18,6 @@ void deletItem();
 void ReseteList();
 
 //global variables
-
 bool Quitflag = false;
 TreeType <PDetails> TT;
 PDetails details;
@@ -119,7 +120,7 @@ void ReseteList(){
 #pragma region 
 void EnterPhoneList(){
 
-		details.FirstName = "Barack";
+		/*details.FirstName = "Barack";
 		details.LastNam = "Obama";
 		details.PhoneNum = 0012024561111;
 		TT.InsertItem(details);
@@ -142,29 +143,29 @@ void EnterPhoneList(){
 		details.FirstName = "Mario";
 		details.LastNam = "Ramalho";
 		details.PhoneNum = 00351212012012;
-		TT.InsertItem(details);
+		TT.InsertItem(details);*/
+
+
+	cout << "\n\t" << char(218) << "-------------------------------" << char(191);
+	cout << "\n\t" << char(179) << "\tADD CONTACT NUMBER!\t" << char(179);
+	cout << "\n\t" << char(192) << "-------------------------------" << char(217);
+
+
+	cout << "\n\tEnter First Name: ";
+	cin >> details.FirstName;
+	cout << "\tEnter Surname: ";
+	cin >> details.LastNam;
+	cout << "\tEnter Phone Number: ";
+	cin >> details.PhoneNum;
+	TT.InsertItem(details);
+	cout << "\n\t" << char(218) << "-------------------------------" << char(191);
+	cout << "\n\t" << char(179) << "\tCONTACT NUMBER ADDED!\t" << char(179);
+	cout << "\n\t" << char(192) << "-------------------------------" << char(217);
 
 
 	//cout << "\n\t" << char(218) << "-------------------------------" << char(191);
-	//cout << "\n\t" << char(179) << "\tADD CONTACT NUMBER!\t" << char(179);
+	//cout << "\n\t" << char(179) << "\tCONTACT NUMBERS ADDED!\t" << char(179);
 	//cout << "\n\t" << char(192) << "-------------------------------" << char(217);
-
-
-	//cout << "\n\tEnter First Name: ";
-	//cin >> details.FirstName;
-	//cout << "\tEnter Surname: ";
-	//cin >> details.LastNam;
-	//cout << "\tEnter Phone Number: ";
-	//cin >> details.PhoneNum;
-	//TT.InsertItem(details);
-	//cout << "\n\t" << char(218) << "-------------------------------" << char(191);
-	//cout << "\n\t" << char(179) << "\tCONTACT NUMBER ADDED!\t" << char(179);
-	//cout << "\n\t" << char(192) << "-------------------------------" << char(217);
-
-
-		cout << "\n\t" << char(218) << "-------------------------------" << char(191);
-		cout << "\n\t" << char(179) << "\tCONTACT NUMBERS ADDED!\t" << char(179);
-		cout << "\n\t" << char(192) << "-------------------------------" << char(217);
 
 
 
@@ -196,7 +197,7 @@ void deletItem(){
 	bool found = false;
 	PDetails S2;
 
-	//if phone book is empty, print this
+
 	if (TT.IsEmpty())
 	{
 		cout << "\n\t" << char(218) << "-------------------------------" << char(191);
@@ -205,7 +206,7 @@ void deletItem(){
 	}
 
 	else
-	{//else, enter the surname and confirm with a message
+	{
 		cout << "\n\n\t\tPlease Enter a Surname: ";
 		cin >> S2.LastNam;
 		TT.DeleteItem(S2);
@@ -225,7 +226,7 @@ void searchItemLetter(){
 	bool found = false;
 	string S2;
 
-	//if phone book is empty, print this
+
 	if (TT.IsEmpty())
 	{
 		cout << "\n\t" << char(218) << "-------------------------------" << char(191);
@@ -234,8 +235,8 @@ void searchItemLetter(){
 	}
 
 	else
-	{//else, ask the user to enter a the firs letter of the surname
-		cout << "\n\n\tPlease Enter The First Letter of The Surname: ";
+	{
+		cout << "\n\n\tPlease Enter Ther First Letter of The Surname: ";
 		cin >> S2;
 		string info = S2.substr(0, 1);
 		TT.RetrieveItem(info, found);
@@ -246,20 +247,19 @@ void searchItemLetter(){
 
 //option 6 
 #pragma region 
-//option 6
 void searchItem(){
 
 	bool found = false;
 	string S2;
 
-	//if phone book is empty, print this
+
 	if (TT.IsEmpty())
 	{
 		cout << "\n\t" << char(218) << "-------------------------------" << char(191);
 		cout << "\n\t" << char(179) << "\tPHONE BOOK IS EMPTY!\t" << char(179);
 		cout << "\n\t" << char(192) << "-------------------------------" << char(217);
 	}
-	//else, ask the user to enter the surname
+
 	else
 	{
 		cout << "\n\n\tPlease Enter Surname: ";
@@ -271,11 +271,10 @@ void searchItem(){
 
 #pragma endregion search Item By Surname
 
-//option 7 
-
+//option 7
 #pragma region
 void exit(){
-//function to exit
+
 	Quitflag = true;
 }
 #pragma endregion Exite
