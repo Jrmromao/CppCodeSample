@@ -14,9 +14,7 @@ class TreeType
 public:
 	TreeType(); 	// constructor
 	~TreeType(); 	// destructor
-	TreeType(const TreeType<ItemType>& originalTree);// copy constructor
 	bool IsEmpty();
-	bool IsFull();
 	void InsertItem(ItemType item);
 	void DeleteItem(PDetails item);
 	void ResetTree();
@@ -25,22 +23,16 @@ public:
 	void RetrieveItem(string item, bool& found);
 	void RetrieveItemByFullS(string item, bool & found);
 private:
-//Private methods
 	TreeNode<ItemType> * root;
 	void Insert(TreeNode<ItemType>*& tree, ItemType item);
 	void Print(TreeNode<ItemType>* tree);
-	void InPrint(TreeNode<ItemType>* tree);
-	void PrePrint(TreeNode<ItemType>* tree);
-	void PostPrint(TreeNode<ItemType>* tree);
-	int  CountNodes(TreeNode<ItemType>* tree);
 	void Retrieve(TreeNode<ItemType>* tree, string& item, bool& found);
 	void RetrieveByFullS(TreeNode<ItemType>* tree, string item, bool& found);
-	void checkFirstLetter(TreeNode<ItemType>* tree, PDetails& item, bool& found);
 	void Delete(TreeNode<ItemType>*& tree, PDetails item);
 	void GetPredecessor(TreeNode<ItemType>* tree, PDetails& data);
 	void DeleteNode(TreeNode<ItemType>*& tree);
 };
-//class implemtation
+//class implementation
 
 
 template<class ItemType>
@@ -55,30 +47,28 @@ TreeType<ItemType>::~TreeType()
 	Destroy(root);
 }
 
-//method to that will seach every surmame that starts with a particular character - Private/Internel method
+
 template<class ItemType>
 void TreeType<ItemType>::Retrieve(TreeNode<ItemType>* tree, string& item, bool& found)
 {
-	//if tree is not null, 
-	//it will perfom the actions bellow
-		if (tree != NULL) 
+
+		if (tree != NULL)
 		{
-			if (item== tree->info.LastNam.substr(0,1)) //item, that passed in, is equal do tree
+			if (item== tree->info.LastNam.substr(0,1))
 			{
-				found = true; 
-				tree->info.print(); //call the print method
-				Retrieve(tree->left, item, found); //call a recursive method that will seacr for the item in the left subtree
-				Retrieve(tree->right, item, found);//call a recursive method that will seacr for the item in the right subtree
+				found = true;
+				tree->info.print();
+				Retrieve(tree->left, item, found);
+				Retrieve(tree->right, item, found);
 			}
-			else 
-			{//Else, the item is not equal to the tree
-				Retrieve(tree->left, item, found);//call a recursive method that will seacr for the item in the left subtree
-				Retrieve(tree->right, item, found);//call a recursive method that will seacr for the item in the righ subtree
+			else
+			{
+				Retrieve(tree->left, item, found);
+				Retrieve(tree->right, item, found);
 			}
 		}
 		
 }
-//method to that will retrive, every surmame that starts with a particular character - Public method
 template<class ItemType>
 void TreeType<ItemType>::RetrieveItem(string item, bool& found)
 
@@ -86,9 +76,6 @@ void TreeType<ItemType>::RetrieveItem(string item, bool& found)
 	Retrieve(root, item, found);
 }
 
-
-
-//method to that will seach for a particular surmame that is equal to the surname that the user enters - Private/Internel method
 template<class ItemType>
 void TreeType<ItemType>::RetrieveByFullS(TreeNode<ItemType>* tree, string item, bool& found)
 
@@ -115,7 +102,7 @@ void TreeType<ItemType>::RetrieveByFullS(TreeNode<ItemType>* tree, string item, 
 	}
 
 }
-//method to that will retrive for a particular surmame that is equal to the surname that the user enters - Public method
+
 template<class ItemType>
 void TreeType<ItemType>::RetrieveItemByFullS(string item, bool & found)
 {
@@ -185,7 +172,7 @@ void TreeType<ItemType>::Destroy(TreeNode<ItemType>*& tree)
 		delete tree;
 	}
 }
-//method to set tree to empty
+
 template<class ItemType>
 void TreeType<ItemType>::ResetTree(){
 
@@ -218,7 +205,7 @@ void TreeType<ItemType>::DeleteItem(PDetails item)
 	Delete(root, item);
 }
 
-//methods to delete a contact from the phone book
+
 template<class ItemType>
 void TreeType<ItemType>::DeleteNode(TreeNode<ItemType>*& tree)
 
